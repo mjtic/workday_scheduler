@@ -1,6 +1,7 @@
+// variables
 let saveBtn = $(".saveBtn");
 let today = dayjs();
-
+// current day timer in the header
 $('#currentDay').text(today.format('[Today is] dddd, MMMM D[th], [Current Time:] h:mm a'))
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
