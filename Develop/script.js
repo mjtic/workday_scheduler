@@ -1,16 +1,12 @@
 // variables
 let saveBtn = $(".saveBtn");
-
+let currentTime = dayjs();
+let hour = [9, 10, 11, 12, 13, 14];
 // current day timer in the header
-setInterval (function (){
-  let time = dayjs();
-  $('#currentDay').text(time.format('[Today is] dddd, MMMM D[th], [Current Time:] h:mm:ss A'));
-}
-)
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
-
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -35,3 +31,17 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
+
+
+
+// Click event causes alert "Hello World"
+// Vanilla JS equivalent: `addEventListener`
+// alertButtonEl.on('click', function () {
+//   alert('Hello World');
+// });
+
+// Takes an array of projects and saves them in localStorage.
+// function saveProjectsToStorage(projects) {
+//   localStorage.setItem('projects', JSON.stringify(projects));
+// }
