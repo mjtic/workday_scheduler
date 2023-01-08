@@ -3,30 +3,77 @@ let saveBtn = $(".saveBtn");
 let workHour = [9, 10, 11, 12, 13, 14];
 let hour = $(".hour");
 let textBlock = $(".description");
-let currentTime = $("currentDay")
+let currentTime = $("#currentDay");
+let past = $(".past");
 
-let time = setInterval(function () {
+let timeOfDay = setInterval(function () {
   let time = dayjs();
   $("#currentDay").text(
     time.format("[Today is] dddd, MMMM D[th], [Current Time:] h:mm:ss A")
   );
 });
 
-for (let i = 0; i < 9; i++) {
-  if (currentTime > workHour[i]) classList.add(".past");
-}
 
-// for loop??
-// for (let i = 0; i < 9; i++){
-//   if (time > workHour[i].classList.add("past"));
+
+
+
+
+
+// if (time < 3) {
+//   document.getElementById("hour-11").setAttribute("style", "background-color:red");
+// }
+
+// function timeBlockDisplay(){
+//   textBlock.each(function(){
+//     if (timeOfDay < hour) {
+//       $(this).addClass("past")
+//     }
+//   })
 // }
 
 
 
 
+// var today = dayjs();
+// if (dayjs("past").isBefore(timeOfDay)) {
+//   document
+//     .getElementsByClassName("timeblock")
+//     .setAttribute("style", "background-color:red");
+// } else if (today.isSame(timeOfDay)) {
+//   document
+//     .getElementsByClassName("timeblock")
+//     .setAttribute("style", "background-color:green");
+// }
+
+// var today = dayjs();
+// taskList.forEach((task) -> {
+//   if (dayjs(task.reminderDate).isAfter(today))) {
+//     missedFilter.push(task);
+//   }
+// });
 
 
+// }else (time.isAfter(today)){
+//   document.getElementsByClassName("timeblock").setAttribute("style", "background-color:gray");
+// }
 
+// else if (time = hour){
+//   textBlock.attr('color', 'present')
+// }
+// else {
+//   textBlock.attr('color', 'future')
+// }
+// console.log(textBlock);
+
+// document.getElementById("hour-12").setAttribute("style", "background-color:red");
+
+// function timeBlockDisplay () {
+//   let time
+// }
+// for loop??
+// for (let i = 0; i < 9; i++){
+//   if (time > workHour[i].classList.add("past"));
+// }
 
 // current day timer in the header
 
