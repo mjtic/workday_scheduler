@@ -1,42 +1,60 @@
 // variables
 let saveBtn = $(".saveBtn");
-let workHour = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,23];
+let workHour = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 let currentTime = new Date();
-
 
 // https://www.w3schools.com/jsref/jsref_sethours.asp
 
-setInterval (function (){
+setInterval(function () {
   let time = dayjs();
-  $('#currentDay').text(time.format('[Today is] dddd, MMMM D[th], [Current Time:] h:mm:ss a'));
-}
-)
-
-
+  $("#currentDay").text(
+    time.format("[Today is] dddd, MMMM D[th], [Current Time:] h:mm:ss a")
+  );
+});
+updateTextArea();
 console.log("current time: " + currentTime.toString("HH:mm:ss"));
 for (let i = 0; i < workHour.length; i++) {
   let officeTime = new Date();
-  officeTime.setHours(workHour[i],0,0)
+  officeTime.setHours(workHour[i], 0, 0);
   let officeTimeAfter = new Date();
-  officeTimeAfter.setHours(workHour[i]+1,0,0)
+  officeTimeAfter.setHours(workHour[i] + 1, 0, 0);
 
-  console.log(workHour[i])
-  if (currentTime >= officeTime && currentTime <officeTimeAfter){
-    console.log('present');
-    $("#time_" + workHour[i]).addClass("present")
-  }
-  else if (currentTime > officeTime){
-    console.log('past');
-    $("#time_" + workHour[i]).addClass("past")
-  }
-  else {
-    $("#time_" + workHour[i]).addClass("future")
+  console.log(workHour[i]);
+  if (currentTime >= officeTime && currentTime < officeTimeAfter) {
+    console.log("present");
+    $("#time_" + workHour[i]).addClass("present");
+  } else if (currentTime > officeTime) {
+    console.log("past");
+    $("#time_" + workHour[i]).addClass("past");
+  } else {
+    $("#time_" + workHour[i]).addClass("future");
   }
 }
 
-// const saveBtns = document.querySelectorAll(".saveBtn");
-// console.log(rgua);
+const saveBtns = document.querySelectorAll(".saveBtn");
+console.log(saveBtns);
 
+saveBtns.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var scheduleValue = $(this).siblings("textarea")[0].value;
+    localStorage.setItem(this.id, scheduleValue);
+  });
+});
+
+function updateTextArea() {
+  for (let i = 0; i < workHour.length; i++) {
+    let localStorageValue = localStorage.getItem(workHour[i]);
+    console.log(localStorageValue);
+    let textAreaEl = document.getElementById("time_" + workHour[i]);
+
+    if (localStorageValue === "") {
+      localStorageValue.removeItem(workHour[i]);
+    } else {
+      textAreaEl.value = localStorageValue;
+    }
+    console.log(textAreaEl);
+  }
+}
 // saveBtns.forEach(function(btn))
 
 // current day timer in the header
