@@ -1,6 +1,6 @@
 // variables
 let saveBtn = $(".saveBtn");
-let workHour = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+let workHour = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,23];
 let currentTime = new Date();
 
 
@@ -23,9 +23,21 @@ for (let i = 0; i < workHour.length; i++) {
   console.log(workHour[i])
   if (currentTime >= officeTime && currentTime <officeTimeAfter){
     console.log('present');
-    addClass.(".present")
+    $("#time_" + workHour[i]).addClass("present")
+  }
+  else if (currentTime > officeTime){
+    console.log('past');
+    $("#time_" + workHour[i]).addClass("past")
+  }
+  else {
+    $("#time_" + workHour[i]).addClass("future")
   }
 }
+
+// const saveBtns = document.querySelectorAll(".saveBtn");
+// console.log(rgua);
+
+// saveBtns.forEach(function(btn))
 
 // current day timer in the header
 
