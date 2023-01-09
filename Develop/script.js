@@ -1,79 +1,31 @@
 // variables
 let saveBtn = $(".saveBtn");
-let workHour = [9, 10, 11, 12, 13, 14];
-let hour = $(".hour");
-let textBlock = $(".description");
-let currentTime = $("#currentDay");
-let past = $(".past");
+let workHour = [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+let currentTime = new Date();
 
-let timeOfDay = setInterval(function () {
+
+// https://www.w3schools.com/jsref/jsref_sethours.asp
+
+setInterval (function (){
   let time = dayjs();
-  $("#currentDay").text(
-    time.format("[Today is] dddd, MMMM D[th], [Current Time:] h:mm:ss A")
-  );
-});
+  $('#currentDay').text(time.format('[Today is] dddd, MMMM D[th], [Current Time:] h:mm:ss a'));
+}
+)
 
 
+console.log("current time: " + currentTime.toString("HH:mm:ss"));
+for (let i = 0; i < workHour.length; i++) {
+  let officeTime = new Date();
+  officeTime.setHours(workHour[i],0,0)
+  let officeTimeAfter = new Date();
+  officeTimeAfter.setHours(workHour[i]+1,0,0)
 
-
-
-
-
-// if (time < 3) {
-//   document.getElementById("hour-11").setAttribute("style", "background-color:red");
-// }
-
-// function timeBlockDisplay(){
-//   textBlock.each(function(){
-//     if (timeOfDay < hour) {
-//       $(this).addClass("past")
-//     }
-//   })
-// }
-
-
-
-
-// var today = dayjs();
-// if (dayjs("past").isBefore(timeOfDay)) {
-//   document
-//     .getElementsByClassName("timeblock")
-//     .setAttribute("style", "background-color:red");
-// } else if (today.isSame(timeOfDay)) {
-//   document
-//     .getElementsByClassName("timeblock")
-//     .setAttribute("style", "background-color:green");
-// }
-
-// var today = dayjs();
-// taskList.forEach((task) -> {
-//   if (dayjs(task.reminderDate).isAfter(today))) {
-//     missedFilter.push(task);
-//   }
-// });
-
-
-// }else (time.isAfter(today)){
-//   document.getElementsByClassName("timeblock").setAttribute("style", "background-color:gray");
-// }
-
-// else if (time = hour){
-//   textBlock.attr('color', 'present')
-// }
-// else {
-//   textBlock.attr('color', 'future')
-// }
-// console.log(textBlock);
-
-// document.getElementById("hour-12").setAttribute("style", "background-color:red");
-
-// function timeBlockDisplay () {
-//   let time
-// }
-// for loop??
-// for (let i = 0; i < 9; i++){
-//   if (time > workHour[i].classList.add("past"));
-// }
+  console.log(workHour[i])
+  if (currentTime >= officeTime && currentTime <officeTimeAfter){
+    console.log('present');
+    addClass.(".present")
+  }
+}
 
 // current day timer in the header
 
