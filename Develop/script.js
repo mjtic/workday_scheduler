@@ -48,7 +48,7 @@ function updateTextArea() {
     let textAreaEl = document.getElementById("time_" + workHour[i]);
 
     if (localStorageValue === "") {
-      localStorageValue.removeItem(workHour[i]);
+      localStorage.removeItem(workHour[i]);
     } else {
       textAreaEl.value = localStorageValue;
     }
