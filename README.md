@@ -49,4 +49,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 
 Please refer to the LICENSE in the repo.
 
+## Questions
+If you have additional questions please contact me at myeonghun.jeong88@gmail.com, or if you want to see more of my work you can find them at https://github.com/mjtic
+
 
